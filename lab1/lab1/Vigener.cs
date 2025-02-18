@@ -2,7 +2,8 @@ namespace lab1;
 
 public class Vigener
 {
-    const string MyAlphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
+    public const string MyAlphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя";
+
     private static Dictionary<char, int> _ascii = new Dictionary<char, int>{
         { 'а', 0 }, { 'б', 1 }, { 'в', 2 }, { 'г', 3 }, { 'д', 4 },
         { 'е', 5 }, { 'ё', 6 }, { 'ж', 7 }, { 'з', 8 }, { 'и', 9 },
