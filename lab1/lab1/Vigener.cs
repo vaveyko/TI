@@ -20,10 +20,37 @@ public class Vigener
         int keyIndex = 0;
         for (int i = 0; i < text.Length; i++)
         {
-            cipherText[i] = MyAlphabet[(_ascii[text[i]] + _ascii[key[keyIndex]]) % MyAlphabet.Length];
-            
-            keyIndex = (++keyIndex) % key.Length;
+            if(text[i] != ' ')
+            {
+                cipherText[i] = MyAlphabet[(_ascii[text[i]] + _ascii[key[keyIndex]]) % MyAlphabet.Length];
+                keyIndex = (++keyIndex) % key.Length;
+            }
+            else
+            {
+                cipherText[i] = text[i];
+            }
         }
         return new string(cipherText);
+    }
+
+    public static string UnCipherise(string key, string cipherText)
+    {
+        char[] text = new char[cipherText.Length];
+        
+        int keyIndex = 0;
+        for (int i = 0; i < cipherText.Length; i++)
+        {
+            if (cipherText[i] != ' ')
+            {
+                text[i] = MyAlphabet[(MyAlphabet.Length + _ascii[cipherText[i]] - _ascii[key[keyIndex]]) % MyAlphabet.Length];
+                keyIndex = (++keyIndex) % key.Length;
+            }
+            else
+            {
+                text[i] = cipherText[i];
+            }
+        }
+        
+        return new string(text);
     }
 }
