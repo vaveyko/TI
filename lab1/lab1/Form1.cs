@@ -29,4 +29,13 @@ public partial class Form1 : Form
     {
         outputTextBox.Text = Vigener.UnCipherise(ClearStr(keyTextBox.Text), ClearStr(inputTextBox.Text));
     }
+
+    private void openFileButton_Click(object sender, EventArgs e)
+    {
+        openFileDialog1.ShowDialog();
+        if (openFileDialog1.FileName.Length > 0)
+        {
+            inputTextBox.Text = File.ReadAllText(openFileDialog1.FileName);
+        }
+    }
 }
