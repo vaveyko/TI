@@ -14,8 +14,26 @@ public class Vigener
         { 'э', 30 }, { 'ю', 31 }, { 'я', 32 }
         
     };
-    public static string Cipherise(string key, string text)
+    
+    private static string DelSpaceStr(string str)
     {
+        char[] buff = new char[str.Length];
+        int buffInd = 0;
+        
+        for (int i = 0; i < str.Length; i++)
+        {
+            if (str[i] != ' ')
+            {
+                buff[buffInd++] = str[i];
+            }
+        }
+        
+        return new string(buff, 0, buffInd);
+    }
+    
+    public static string Cipherise(string currKey, string text)
+    {
+        string key = DelSpaceStr(currKey);
         char[] cipherText = new char[text.Length];
         int keyIndex = 0;
         for (int i = 0; i < text.Length; i++)
@@ -33,8 +51,9 @@ public class Vigener
         return new string(cipherText);
     }
 
-    public static string UnCipherise(string key, string cipherText)
+    public static string UnCipherise(string currKey, string cipherText)
     {
+        string key = DelSpaceStr(currKey);
         char[] text = new char[cipherText.Length];
         
         int keyIndex = 0;

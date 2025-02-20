@@ -41,6 +41,8 @@ partial class Form1
         label1 = new System.Windows.Forms.Label();
         openFileButton = new System.Windows.Forms.Button();
         plefnerTabPage = new System.Windows.Forms.TabPage();
+        label6 = new System.Windows.Forms.Label();
+        label5 = new System.Windows.Forms.Label();
         button1 = new System.Windows.Forms.Button();
         outTextBox2 = new System.Windows.Forms.TextBox();
         inputTextBox2 = new System.Windows.Forms.TextBox();
@@ -50,8 +52,6 @@ partial class Form1
         cipherButton2 = new System.Windows.Forms.Button();
         tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
         openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-        label5 = new System.Windows.Forms.Label();
-        label6 = new System.Windows.Forms.Label();
         tabControl1.SuspendLayout();
         vigenerTabPage.SuspendLayout();
         plefnerTabPage.SuspendLayout();
@@ -60,7 +60,7 @@ partial class Form1
         // keyTextBox
         // 
         keyTextBox.Font = new System.Drawing.Font("Segoe UI", 11F);
-        keyTextBox.Location = new System.Drawing.Point(42, 113);
+        keyTextBox.Location = new System.Drawing.Point(79, 124);
         keyTextBox.Name = "keyTextBox";
         keyTextBox.Size = new System.Drawing.Size(215, 37);
         keyTextBox.TabIndex = 0;
@@ -68,7 +68,7 @@ partial class Form1
         // cipherButton
         // 
         cipherButton.Font = new System.Drawing.Font("Segoe UI", 11F);
-        cipherButton.Location = new System.Drawing.Point(42, 160);
+        cipherButton.Location = new System.Drawing.Point(79, 171);
         cipherButton.Name = "cipherButton";
         cipherButton.Size = new System.Drawing.Size(215, 42);
         cipherButton.TabIndex = 1;
@@ -79,7 +79,7 @@ partial class Form1
         // unCipherButton
         // 
         unCipherButton.Font = new System.Drawing.Font("Segoe UI", 11F);
-        unCipherButton.Location = new System.Drawing.Point(42, 208);
+        unCipherButton.Location = new System.Drawing.Point(79, 219);
         unCipherButton.Name = "unCipherButton";
         unCipherButton.Size = new System.Drawing.Size(215, 42);
         unCipherButton.TabIndex = 2;
@@ -90,7 +90,7 @@ partial class Form1
         // inputTextBox
         // 
         inputTextBox.Font = new System.Drawing.Font("Segoe UI", 11F);
-        inputTextBox.Location = new System.Drawing.Point(331, 65);
+        inputTextBox.Location = new System.Drawing.Point(453, 113);
         inputTextBox.Multiline = true;
         inputTextBox.Name = "inputTextBox";
         inputTextBox.Size = new System.Drawing.Size(458, 185);
@@ -99,7 +99,7 @@ partial class Form1
         // outputTextBox
         // 
         outputTextBox.Font = new System.Drawing.Font("Segoe UI", 11F);
-        outputTextBox.Location = new System.Drawing.Point(331, 300);
+        outputTextBox.Location = new System.Drawing.Point(453, 348);
         outputTextBox.Multiline = true;
         outputTextBox.Name = "outputTextBox";
         outputTextBox.Size = new System.Drawing.Size(458, 197);
@@ -112,7 +112,7 @@ partial class Form1
         tabControl1.Location = new System.Drawing.Point(-3, 1);
         tabControl1.Name = "tabControl1";
         tabControl1.SelectedIndex = 0;
-        tabControl1.Size = new System.Drawing.Size(840, 561);
+        tabControl1.Size = new System.Drawing.Size(1001, 684);
         tabControl1.TabIndex = 5;
         // 
         // vigenerTabPage
@@ -129,7 +129,7 @@ partial class Form1
         vigenerTabPage.Location = new System.Drawing.Point(4, 34);
         vigenerTabPage.Name = "vigenerTabPage";
         vigenerTabPage.Padding = new System.Windows.Forms.Padding(3);
-        vigenerTabPage.Size = new System.Drawing.Size(832, 523);
+        vigenerTabPage.Size = new System.Drawing.Size(993, 646);
         vigenerTabPage.TabIndex = 0;
         vigenerTabPage.Text = "Виженер";
         vigenerTabPage.UseVisualStyleBackColor = true;
@@ -137,7 +137,7 @@ partial class Form1
         // label3
         // 
         label3.Font = new System.Drawing.Font("Segoe UI", 11F);
-        label3.Location = new System.Drawing.Point(331, 265);
+        label3.Location = new System.Drawing.Point(453, 313);
         label3.Name = "label3";
         label3.Size = new System.Drawing.Size(303, 32);
         label3.TabIndex = 8;
@@ -146,7 +146,7 @@ partial class Form1
         // label2
         // 
         label2.Font = new System.Drawing.Font("Segoe UI", 11F);
-        label2.Location = new System.Drawing.Point(331, 27);
+        label2.Location = new System.Drawing.Point(453, 75);
         label2.Name = "label2";
         label2.Size = new System.Drawing.Size(250, 32);
         label2.TabIndex = 7;
@@ -155,7 +155,7 @@ partial class Form1
         // label1
         // 
         label1.Font = new System.Drawing.Font("Segoe UI", 11F);
-        label1.Location = new System.Drawing.Point(42, 64);
+        label1.Location = new System.Drawing.Point(79, 75);
         label1.Name = "label1";
         label1.Size = new System.Drawing.Size(124, 43);
         label1.TabIndex = 6;
@@ -165,7 +165,7 @@ partial class Form1
         // openFileButton
         // 
         openFileButton.Font = new System.Drawing.Font("Segoe UI", 11F);
-        openFileButton.Location = new System.Drawing.Point(172, 64);
+        openFileButton.Location = new System.Drawing.Point(209, 75);
         openFileButton.Name = "openFileButton";
         openFileButton.Size = new System.Drawing.Size(85, 43);
         openFileButton.TabIndex = 5;
@@ -188,10 +188,28 @@ partial class Form1
         plefnerTabPage.Location = new System.Drawing.Point(4, 34);
         plefnerTabPage.Name = "plefnerTabPage";
         plefnerTabPage.Padding = new System.Windows.Forms.Padding(3);
-        plefnerTabPage.Size = new System.Drawing.Size(832, 523);
+        plefnerTabPage.Size = new System.Drawing.Size(993, 646);
         plefnerTabPage.TabIndex = 1;
         plefnerTabPage.Text = "Плейфер";
         plefnerTabPage.UseVisualStyleBackColor = true;
+        // 
+        // label6
+        // 
+        label6.Font = new System.Drawing.Font("Segoe UI", 11F);
+        label6.Location = new System.Drawing.Point(520, 278);
+        label6.Name = "label6";
+        label6.Size = new System.Drawing.Size(270, 33);
+        label6.TabIndex = 9;
+        label6.Text = "Преобразованный текст";
+        // 
+        // label5
+        // 
+        label5.Font = new System.Drawing.Font("Segoe UI", 11F);
+        label5.Location = new System.Drawing.Point(520, 19);
+        label5.Name = "label5";
+        label5.Size = new System.Drawing.Size(270, 33);
+        label5.TabIndex = 8;
+        label5.Text = "Исходный текст";
         // 
         // button1
         // 
@@ -200,14 +218,14 @@ partial class Form1
         button1.Name = "button1";
         button1.Size = new System.Drawing.Size(228, 44);
         button1.TabIndex = 7;
-        button1.Text = "Расшивровать";
+        button1.Text = "Расшифровать";
         button1.UseVisualStyleBackColor = true;
         button1.Click += button1_Click_1;
         // 
         // outTextBox2
         // 
         outTextBox2.Font = new System.Drawing.Font("Segoe UI", 11F);
-        outTextBox2.Location = new System.Drawing.Point(354, 314);
+        outTextBox2.Location = new System.Drawing.Point(520, 314);
         outTextBox2.Multiline = true;
         outTextBox2.Name = "outTextBox2";
         outTextBox2.Size = new System.Drawing.Size(445, 193);
@@ -216,7 +234,7 @@ partial class Form1
         // inputTextBox2
         // 
         inputTextBox2.Font = new System.Drawing.Font("Segoe UI", 11F);
-        inputTextBox2.Location = new System.Drawing.Point(354, 55);
+        inputTextBox2.Location = new System.Drawing.Point(520, 55);
         inputTextBox2.Multiline = true;
         inputTextBox2.Name = "inputTextBox2";
         inputTextBox2.Size = new System.Drawing.Size(445, 193);
@@ -274,8 +292,8 @@ partial class Form1
         tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
         tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
         tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-        tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-        tableLayoutPanel1.Location = new System.Drawing.Point(29, 235);
+        tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+        tableLayoutPanel1.Location = new System.Drawing.Point(27, 209);
         tableLayoutPanel1.Name = "tableLayoutPanel1";
         tableLayoutPanel1.RowCount = 11;
         tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -289,7 +307,7 @@ partial class Form1
         tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
         tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
         tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-        tableLayoutPanel1.Size = new System.Drawing.Size(275, 272);
+        tableLayoutPanel1.Size = new System.Drawing.Size(441, 414);
         tableLayoutPanel1.TabIndex = 0;
         // 
         // openFileDialog1
@@ -297,29 +315,11 @@ partial class Form1
         openFileDialog1.Filter = "(*.txt)|*.txt";
         openFileDialog1.ReadOnlyChecked = true;
         // 
-        // label5
-        // 
-        label5.Font = new System.Drawing.Font("Segoe UI", 11F);
-        label5.Location = new System.Drawing.Point(354, 19);
-        label5.Name = "label5";
-        label5.Size = new System.Drawing.Size(270, 33);
-        label5.TabIndex = 8;
-        label5.Text = "Исходный текст";
-        // 
-        // label6
-        // 
-        label6.Font = new System.Drawing.Font("Segoe UI", 11F);
-        label6.Location = new System.Drawing.Point(354, 278);
-        label6.Name = "label6";
-        label6.Size = new System.Drawing.Size(270, 33);
-        label6.TabIndex = 9;
-        label6.Text = "Преобразованный текст";
-        // 
         // Form1
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-        ClientSize = new System.Drawing.Size(839, 566);
+        ClientSize = new System.Drawing.Size(996, 685);
         Controls.Add(tabControl1);
         Text = "Шифры";
         tabControl1.ResumeLayout(false);
