@@ -34,7 +34,7 @@ public class Plefner
         return new string(buff, 0, buffInd);
     }
 
-    private static void CreateBuffMap(char[,] map)
+    /*private static void CreateBuffMap(char[,] map)
     {
         _secondMap = new Dictionary<char, int[]>();
         _thirdMap = new Dictionary<char, int[]>();
@@ -46,13 +46,13 @@ public class Plefner
             _thirdMap.Add(curKey, [4 - (_firstMap[curKey][1] - 5), _firstMap[curKey][0]]);
             _forthMap.Add(curKey, [4 - (_firstMap[curKey][0] - 5), 4 - (_firstMap[curKey][1] - 5)]);
         }
-    }
+    }*/
 
-    private static char[,] FillBuffMatrix(string key)
+    private static char[,] FillBuffMatrix(string key, ref Dictionary<char, int[]> map)
     {
         char[,] buffMatrix = new char[5, 5];
         int[] flagArr = new int[26];
-        _firstMap = new Dictionary<char, int[]>();
+        map = new Dictionary<char, int[]>();
         
         for (int i = 0; i < flagArr.Length; i++)
         {
@@ -68,7 +68,7 @@ public class Plefner
                 {
                     buffMatrix[i, j] = key[keyInd];
                     flagArr[_ascii[key[keyInd]]] = 1;
-                    _firstMap.Add(key[keyInd], new int[] { i, j });
+                    map.Add(key[keyInd], new int[] { i, j });
                     if (flagArr[_ascii['j']] == 1 || flagArr[_ascii['i']] == 1)
                     {
                         flagArr[_ascii['j']] = 1;
@@ -83,7 +83,7 @@ public class Plefner
                     {
                         buffMatrix[i, j] = MyAlphabet[h];
                         flagArr[h] = 1;
-                        _firstMap.Add(MyAlphabet[h], new int[] { i, j });
+                        map.Add(MyAlphabet[h], new int[] { i, j });
                         if (flagArr[_ascii['j']] == 1 || flagArr[_ascii['i']] == 1)
                         {
                             flagArr[_ascii['j']] = 1;
@@ -95,27 +95,29 @@ public class Plefner
             }
         }
 
-        if (_firstMap.ContainsKey('j'))
+        if (map.ContainsKey('j'))
         {
-            _firstMap.Add('i', _firstMap['j']);
+            map.Add('i', map['j']);
         }
-        else if (_firstMap.ContainsKey('i'))
+        else if (map.ContainsKey('i'))
         {
-            _firstMap.Add('j', _firstMap['i']);
+            map.Add('j', map['i']);
         }
 
         return buffMatrix;
     }
-    public static char[,] FillMatrix(string currKey)
+    public static char[,] FillMatrix(string key1, string key2, string key3, string key4)
     {
-        string key = DelSpaceStr(currKey);
         char[,] keyMatrix = new char[10, 10];
-        char[,] buffMatrix = FillBuffMatrix(key);
+        char[,] first = FillBuffMatrix(DelSpaceStr(key1), ref _firstMap);
+        char[,] second = FillBuffMatrix(DelSpaceStr(key2), ref _secondMap);
+        char[,] third = FillBuffMatrix(DelSpaceStr(key3), ref _thirdMap);
+        char[,] forth = FillBuffMatrix(DelSpaceStr(key4), ref _forthMap);
         for (int i = 0; i < 5; i++)
         {
             for (int j = 0; j < 5; j++)
             {
-                keyMatrix[i, j] = buffMatrix[i, j];
+                keyMatrix[i, j] = first[i, j];
             }
         }
         
@@ -123,7 +125,7 @@ public class Plefner
         {
             for (int j = 5; j < 10; j++)
             {
-                keyMatrix[i, j] = buffMatrix[4- (j - 5), i];
+                keyMatrix[i, j] = second[i, j-5];
             }
         }
         
@@ -131,7 +133,7 @@ public class Plefner
         {
             for (int j = 0; j < 5; j++)
             {
-                keyMatrix[i, j] = buffMatrix[j, 4- (i - 5)];
+                keyMatrix[i, j] = third[i-5, j];
             }
         }
         
@@ -139,11 +141,10 @@ public class Plefner
         {
             for (int j = 5; j < 10; j++)
             {
-                keyMatrix[i, j] = buffMatrix[4- (i - 5), 4- (j - 5)];
+                keyMatrix[i, j] = forth[i - 5, j - 5];
             }
         }
 
-        CreateBuffMap(buffMatrix);
         return keyMatrix;
     }
 
@@ -173,31 +174,31 @@ public class Plefner
         return new string(buff, 0, buffInd+1);
     }
     
-    public static string Cipherise(string key, string text)
+    public static string Cipherise(string key1, string key2, string key3, string key4, string text)
     {
-        char[,] keyMatrix = FillMatrix(key);
+        char[,] keyMatrix = FillMatrix(key1, key2, key3, key4);
         char[] cipherText = new char[text.Length*2];
 
         string newText = PrepareText(text);
         for (int i = 0; i < newText.Length/2; i++)
         {
-            cipherText[2*i] = keyMatrix[_firstMap[newText[2*i]][0], _forthMap[newText[2*i+1]][1]];
-            cipherText[2*i+1] = keyMatrix[_firstMap[newText[2*i+1]][0], _forthMap[newText[2*i]][1]];
+            cipherText[2*i] = keyMatrix[_firstMap[newText[2*i]][0], _forthMap[newText[2*i+1]][1]+5];
+            cipherText[2*i+1] = keyMatrix[_forthMap[newText[2*i+1]][0]+5, _firstMap[newText[2*i]][1]];
         }
 
         return new string(cipherText);
     }
     
-    public static string UnCipherise(string key, string text)
+    public static string UnCipherise(string key1, string key2, string key3, string key4, string newText)
     {
-        char[,] keyMatrix = FillMatrix(key);
-        char[] cipherText = new char[text.Length*2];
+        char[,] keyMatrix = FillMatrix(key1, key2, key3, key4);
+        char[] cipherText = new char[newText.Length*2];
 
-        string newText = DelSpaceStr(text);
+        //string newText = DelSpaceStr(text);
         for (int i = 0; i < newText.Length/2; i++)
         {
             cipherText[2*i] = keyMatrix[_secondMap[newText[2*i]][0], _thirdMap[newText[2*i+1]][1]];
-            cipherText[2*i+1] = keyMatrix[_thirdMap[newText[2*i+1]][0], _secondMap[newText[2*i]][1]];
+            cipherText[2*i+1] = keyMatrix[_thirdMap[newText[2*i+1]][0]+5, _secondMap[newText[2*i]][1]+5];
         }
 
         int ind = 1;

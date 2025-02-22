@@ -48,10 +48,13 @@ partial class Form1
         inputTextBox2 = new System.Windows.Forms.TextBox();
         button2 = new System.Windows.Forms.Button();
         label4 = new System.Windows.Forms.Label();
-        keyPlTextBox = new System.Windows.Forms.TextBox();
+        keyPlTextBox1 = new System.Windows.Forms.TextBox();
         cipherButton2 = new System.Windows.Forms.Button();
         tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
         openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+        keyPlTextBox2 = new System.Windows.Forms.TextBox();
+        keyPlTextBox4 = new System.Windows.Forms.TextBox();
+        keyPlTextBox3 = new System.Windows.Forms.TextBox();
         tabControl1.SuspendLayout();
         vigenerTabPage.SuspendLayout();
         plefnerTabPage.SuspendLayout();
@@ -175,6 +178,9 @@ partial class Form1
         // 
         // plefnerTabPage
         // 
+        plefnerTabPage.Controls.Add(keyPlTextBox3);
+        plefnerTabPage.Controls.Add(keyPlTextBox4);
+        plefnerTabPage.Controls.Add(keyPlTextBox2);
         plefnerTabPage.Controls.Add(label6);
         plefnerTabPage.Controls.Add(label5);
         plefnerTabPage.Controls.Add(button1);
@@ -182,7 +188,7 @@ partial class Form1
         plefnerTabPage.Controls.Add(inputTextBox2);
         plefnerTabPage.Controls.Add(button2);
         plefnerTabPage.Controls.Add(label4);
-        plefnerTabPage.Controls.Add(keyPlTextBox);
+        plefnerTabPage.Controls.Add(keyPlTextBox1);
         plefnerTabPage.Controls.Add(cipherButton2);
         plefnerTabPage.Controls.Add(tableLayoutPanel1);
         plefnerTabPage.Location = new System.Drawing.Point(4, 34);
@@ -214,7 +220,7 @@ partial class Form1
         // button1
         // 
         button1.Font = new System.Drawing.Font("Segoe UI", 11F);
-        button1.Location = new System.Drawing.Point(27, 148);
+        button1.Location = new System.Drawing.Point(259, 143);
         button1.Name = "button1";
         button1.Size = new System.Drawing.Size(228, 44);
         button1.TabIndex = 7;
@@ -260,18 +266,18 @@ partial class Form1
         label4.TabIndex = 3;
         label4.Text = "Ключ";
         // 
-        // keyPlTextBox
+        // keyPlTextBox1
         // 
-        keyPlTextBox.Font = new System.Drawing.Font("Segoe UI", 11F);
-        keyPlTextBox.Location = new System.Drawing.Point(27, 55);
-        keyPlTextBox.Name = "keyPlTextBox";
-        keyPlTextBox.Size = new System.Drawing.Size(227, 37);
-        keyPlTextBox.TabIndex = 2;
+        keyPlTextBox1.Font = new System.Drawing.Font("Segoe UI", 11F);
+        keyPlTextBox1.Location = new System.Drawing.Point(27, 55);
+        keyPlTextBox1.Name = "keyPlTextBox1";
+        keyPlTextBox1.Size = new System.Drawing.Size(227, 37);
+        keyPlTextBox1.TabIndex = 2;
         // 
         // cipherButton2
         // 
         cipherButton2.Font = new System.Drawing.Font("Segoe UI", 11F);
-        cipherButton2.Location = new System.Drawing.Point(27, 98);
+        cipherButton2.Location = new System.Drawing.Point(25, 143);
         cipherButton2.Name = "cipherButton2";
         cipherButton2.Size = new System.Drawing.Size(228, 44);
         cipherButton2.TabIndex = 1;
@@ -315,6 +321,30 @@ partial class Form1
         openFileDialog1.Filter = "(*.txt)|*.txt";
         openFileDialog1.ReadOnlyChecked = true;
         // 
+        // keyPlTextBox2
+        // 
+        keyPlTextBox2.Font = new System.Drawing.Font("Segoe UI", 11F);
+        keyPlTextBox2.Location = new System.Drawing.Point(259, 55);
+        keyPlTextBox2.Name = "keyPlTextBox2";
+        keyPlTextBox2.Size = new System.Drawing.Size(227, 37);
+        keyPlTextBox2.TabIndex = 10;
+        // 
+        // keyPlTextBox4
+        // 
+        keyPlTextBox4.Font = new System.Drawing.Font("Segoe UI", 11F);
+        keyPlTextBox4.Location = new System.Drawing.Point(260, 100);
+        keyPlTextBox4.Name = "keyPlTextBox4";
+        keyPlTextBox4.Size = new System.Drawing.Size(227, 37);
+        keyPlTextBox4.TabIndex = 11;
+        // 
+        // keyPlTextBox3
+        // 
+        keyPlTextBox3.Font = new System.Drawing.Font("Segoe UI", 11F);
+        keyPlTextBox3.Location = new System.Drawing.Point(26, 100);
+        keyPlTextBox3.Name = "keyPlTextBox3";
+        keyPlTextBox3.Size = new System.Drawing.Size(227, 37);
+        keyPlTextBox3.TabIndex = 12;
+        // 
         // Form1
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -330,6 +360,10 @@ partial class Form1
         ResumeLayout(false);
     }
 
+    private System.Windows.Forms.TextBox keyPlTextBox2;
+    private System.Windows.Forms.TextBox keyPlTextBox4;
+    private System.Windows.Forms.TextBox keyPlTextBox3;
+
     private System.Windows.Forms.Label label5;
     private System.Windows.Forms.Label label6;
 
@@ -339,7 +373,7 @@ partial class Form1
 
     private System.Windows.Forms.TextBox outTextBox2;
 
-    private System.Windows.Forms.TextBox keyPlTextBox;
+    private System.Windows.Forms.TextBox keyPlTextBox1;
     private System.Windows.Forms.Label label4;
     private System.Windows.Forms.Button button2;
 

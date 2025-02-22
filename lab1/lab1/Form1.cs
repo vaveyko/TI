@@ -143,12 +143,15 @@ public partial class Form1 : Form
 
     private void button1_Click(object sender, EventArgs e)
     {
-        string key = ClearStr(keyPlTextBox.Text.ToLower(), Plefner.MyAlphabet);
+        string key1 = ClearStr(keyPlTextBox1.Text.ToLower(), Plefner.MyAlphabet);
+        string key2 = ClearStr(keyPlTextBox2.Text.ToLower(), Plefner.MyAlphabet);
+        string key3 = ClearStr(keyPlTextBox3.Text.ToLower(), Plefner.MyAlphabet);
+        string key4 = ClearStr(keyPlTextBox4.Text.ToLower(), Plefner.MyAlphabet);
         string text = ClearStr(inputTextBox2.Text.ToLower(), Plefner.MyAlphabet);
-        if(key.Length > 0 && text.Length > 0)
+        if(key1.Length > 0 && key2.Length > 0 && key3.Length > 0 && key4.Length > 0 && text.Length > 0)
         {
-            FillGrid(Plefner.FillMatrix(key));
-            outTextBox2.Text = Plefner.Cipherise(key,text);
+            FillGrid(Plefner.FillMatrix(key1, key2, key3, key4));
+            outTextBox2.Text = Plefner.Cipherise(key1, key2, key3, key4,text);
         }
         else
         {
@@ -168,12 +171,15 @@ public partial class Form1 : Form
 
     private void button1_Click_1(object sender, EventArgs e)
     {
-        string key = ClearStr(keyPlTextBox.Text.ToLower(), Plefner.MyAlphabet);
+        string key1 = ClearStr(keyPlTextBox1.Text.ToLower(), Plefner.MyAlphabet);
+        string key2 = ClearStr(keyPlTextBox2.Text.ToLower(), Plefner.MyAlphabet);
+        string key3 = ClearStr(keyPlTextBox3.Text.ToLower(), Plefner.MyAlphabet);
+        string key4 = ClearStr(keyPlTextBox4.Text.ToLower(), Plefner.MyAlphabet);
         string text = ClearStr(inputTextBox2.Text.ToLower(), Plefner.MyAlphabet);
-        if (key.Length > 0 && text.Length > 0)
+        if(key1.Length > 0 && key2.Length > 0 && key3.Length > 0 && key4.Length > 0 && text.Length > 0)
         {
-            FillGrid(Plefner.FillMatrix(key));
-            outTextBox2.Text = Plefner.UnCipherise(key, text);
+            FillGrid(Plefner.FillMatrix(key1, key2, key3, key4));
+            outTextBox2.Text = Plefner.UnCipherise(key1, key2, key3, key4, text);
         }
         else
         {
