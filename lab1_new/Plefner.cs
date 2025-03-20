@@ -4,6 +4,7 @@ namespace lab1_new
 {
     public class Plefner
 {
+    const char staff = 'x';
     public const string MyAlphabet = "abcdefghijklmnopqrstuvwxyz";
     private static Dictionary<char, int[]> _firstMap = new Dictionary<char, int[]>();
     private static Dictionary<char, int[]> _secondMap = new Dictionary<char, int[]>();
@@ -66,18 +67,37 @@ namespace lab1_new
         {
             for (int j = 0; j < 5; j++)
             {
-                if (keyInd < key.Length && flagArr[_ascii[key[keyInd]]] != 1)
+                if (keyInd < key.Length)
                 {
-                    buffMatrix[i, j] = key[keyInd];
-                    flagArr[_ascii[key[keyInd]]] = 1;
-                    map.Add(key[keyInd], new int[] { i, j });
-                    if (flagArr[_ascii['j']] == 1 || flagArr[_ascii['i']] == 1)
+                    if (flagArr[_ascii[key[keyInd]]] != 1)
                     {
-                        flagArr[_ascii['j']] = 1;
-                        flagArr[_ascii['i']] = 1;
+                        buffMatrix[i, j] = key[keyInd];
+                        flagArr[_ascii[key[keyInd]]] = 1;
+                        map.Add(key[keyInd], new int[] { i, j });
+                        if (flagArr[_ascii['j']] == 1 || flagArr[_ascii['i']] == 1)
+                        {
+                            flagArr[_ascii['j']] = 1;
+                            flagArr[_ascii['i']] = 1;
+                        }
+                    }
+                    else
+                    {
+                        while (keyInd < key.Length && flagArr[_ascii[key[keyInd]]] == 1)
+                            keyInd++;
+                        if (keyInd < key.Length)
+                        {
+                            buffMatrix[i, j] = key[keyInd];
+                            flagArr[_ascii[key[keyInd]]] = 1;
+                            map.Add(key[keyInd], new int[] { i, j });
+                            if (flagArr[_ascii['j']] == 1 || flagArr[_ascii['i']] == 1)
+                            {
+                                flagArr[_ascii['j']] = 1;
+                                flagArr[_ascii['i']] = 1;
+                            }
+                        }
                     }
                 }
-                else
+                if (keyInd >= key.Length)
                 {
                     int h = -1;
                     while (h < flagArr.Length && flagArr[++h] == 1) ;
@@ -160,7 +180,7 @@ namespace lab1_new
             if ((text[i] == text[i + 1]) || (text[i] == 'j' && text[i+1] == 'i') || (text[i+1] == 'j' && text[i] == 'i'))
             {
                 buff[buffInd++] = text[i];
-                buff[buffInd++] = 'z';
+                buff[buffInd++] = staff;
             }
             else
             {
@@ -171,7 +191,7 @@ namespace lab1_new
 
         if (buffInd % 2 == 0)
         {
-            buff[++buffInd] = 'z';
+            buff[++buffInd] = staff;
         }
         return new string(buff, 0, buffInd+1);
     }
@@ -206,7 +226,7 @@ namespace lab1_new
         int ind = 1;
         while (ind < cipherText.Length - 1 && cipherText[ind] != '\0')
         {
-            if (cipherText[ind - 1] == cipherText[ind + 1] && cipherText[ind] == 'z')
+            if (cipherText[ind - 1] == cipherText[ind + 1] && cipherText[ind] == staff)
             {
                 int buffInd = ind;
                 while(buffInd < cipherText.Length-1 && cipherText[buffInd] != '\0')
